@@ -80,9 +80,9 @@ fi
 }
 job("Task-6-Job-4"){
     post {
-    always {
-        emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-    }   
+        always {
+            emailext body: 'A Test EMail', subject: 'Test', to: '1728102@kiit.ac.in'
+        }   
     }
     triggers {
         upstream('Task-6-Job-3', 'SUCCESS')
