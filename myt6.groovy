@@ -79,10 +79,26 @@ fi
 }
 }
 job("Task-6-Job-4"){
-    post {
-        always {
-            emailext body: 'A Test EMail', subject: 'Test', to: '1728102@kiit.ac.in'
-        }   
+    publishers {
+        extendedEmail {
+            recipientList('1728102@kiit.ac.in')
+            defaultSubject('Oops')
+            defaultContent('Something broken')
+            contentType('text/html')
+            triggers {
+                beforeBuild()
+                always {
+                    subject('Subject')
+                    content('Body')
+                    sendTo {
+                        recipientList('1728102@kiit.ac.in')
+                        developers()
+                        requester()
+                        culprits()
+                    }
+                }
+            }
+        }
     }
     triggers {
         upstream('Task-6-Job-3', 'SUCCESS')
