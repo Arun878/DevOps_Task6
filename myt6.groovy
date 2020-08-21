@@ -89,6 +89,8 @@ job("Task-6-Job-4"){
                     content('Your WebServer has some error...Check the code and redeploy')
                     sendTo {
                         recipientList('1728102@kiit.ac.in')
+                        developers()
+                        requester()
                     }
                 }
             }
