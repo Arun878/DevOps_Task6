@@ -79,10 +79,11 @@ fi
 }
 }
 job("Task-6-Job-4"){
-    authenticationToken('mail')
-    publishers {
-        mailer("arunsumit878@gmail.com", false, false)
+    post {
+    always {
+        emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
     }
+}
     triggers {
         upstream('Task-6-Job-3', 'SUCCESS')
    }
