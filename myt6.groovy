@@ -82,19 +82,13 @@ job("Task-6-Job-4"){
     publishers {
         extendedEmail {
             recipientList('1728102@kiit.ac.in')
-            defaultSubject('Oops')
-            defaultContent('Something broken')
             contentType('text/html')
             triggers {
-                beforeBuild()
                 always {
-                    subject('Subject')
-                    content('Body')
+                    subject('WebServer Issue')
+                    content('Your WebServer has some error...Check the code and redeploy')
                     sendTo {
                         recipientList('1728102@kiit.ac.in')
-                        developers()
-                        requester()
-                        culprits()
                     }
                 }
             }
