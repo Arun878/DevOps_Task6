@@ -83,6 +83,8 @@ job("Task-6-Job-4"){
         extendedEmail {
             recipientList('1728102@kiit.ac.in')
             contentType('text/html')
+            defaultSubject('Oops')
+            defaultContent('Something broken')
             triggers {
                 always {
                     subject('WebServer Issue')
@@ -91,6 +93,7 @@ job("Task-6-Job-4"){
                         recipientList('1728102@kiit.ac.in')
                         developers()
                         requester()
+                        culprits()
                     }
                 }
             }
